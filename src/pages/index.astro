@@ -1,0 +1,17 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Skylanders portal emulator interface">
+	<main>
+		Look at the console, nerd
+	</main>
+</Layout>
+
+<script>
+	import Portal from "../../lib/portal";
+
+	let portal: Portal = new Portal("http://192.168.178.199")
+	console.log(portal)
+	fetch(portal.ip + "api/v1/info").then((response) => {console.log(response); response.headers.forEach((header, type) => console.log(`${type}: ${header}`)); response.json().then(text => console.log(text))})
+</script>
