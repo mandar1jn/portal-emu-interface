@@ -12,6 +12,7 @@ import Layout from '../layouts/Layout.astro';
 	import Portal from "../../lib/portal";
 
 	let portal: Portal = new Portal("http://192.168.178.199")
-	console.log(portal)
-	fetch(portal.ip + "api/v1/info").then((response) => {console.log(response); response.headers.forEach((header, type) => console.log(`${type}: ${header}`)); response.json().then(text => console.log(text))})
+	console.log(await portal.api.getInfo())
+	console.log(await portal.api.getSlots())
+	console.log(await portal.api.getToy(0))
 </script>
