@@ -14,5 +14,7 @@ import Layout from '../layouts/Layout.astro';
 	let portal: Portal = new Portal("http://192.168.178.199")
 	console.log(await portal.api.getInfo())
 	console.log(await portal.api.getSlots())
-	console.log(await portal.api.getToy(0))
+	//console.log(await portal.api.getToy(1))
+	//console.log(await portal.api.deleteToy(1))
+	//console.log(await portal.api.setToy(0, new Uint8Array(0)))
 </script>

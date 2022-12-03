@@ -53,6 +53,14 @@ class Portal
 			return {
 				data: new Uint8Array(await (await fetch(`${this.ip}api/v1/toys?slot_index=${index}`)).arrayBuffer())
 			}
+		},
+		deleteToy: (index: 0 | 1 | 2 | 3 | 4 | 5): void => 
+		{
+			fetch(`${this.ip}api/v1/toys?slot_index=${index}`, {method: "DELETE"})
+		},
+		setToy: async (index: 0 | 1 | 2 | 3 | 4 | 5, data: Uint8Array) =>
+		{
+			fetch(`${this.ip}api/v1/toys?slot_index=${index}`, {method: "POST", body: new Blob([data.buffer], {type: "application/octet-stream"})})
 		}
 	}
 }
